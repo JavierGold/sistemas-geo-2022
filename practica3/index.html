@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -12,12 +12,30 @@
 
 <body>
 
+    <p>Haz click en el botón para obtener las coordenadas</p>
+
+    <button onclick="getLocation()">Obtener coordenadas</button>
+    <br>
+    <br>
+    
+    <p id="mapa"></p>
+
+    <script>
+        var mapa = document.getElementById("mapa");
+
+        function getLocation(){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(muestraPosicion);
+            }
+        }
 
 
+        function muestraPosicion(posicion){
 
+            mapa.innerHTML = "Latitud: " + posicion.coords.latitude + "<br>" + "Longitud: " + posicion.coords.longitude
 
-
-
+        }
+    </script>
 
 
 
