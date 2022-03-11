@@ -56,28 +56,33 @@
             const map = new google.maps.Map(mapa, propiedades);
 
             if (navigator.geolocation) {
-                let posicion = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                }
 
-                let propiedadesMarcador = {
-                    position: posicion,
-                    map,
-                    title: "Marcador"
-                }
+                navigator.geolocation.getCurrentPosition(position => {
+                    let posicion = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    }
 
-                const marcador = new google.maps.Marker(propiedadesMarcador);
+                    let propiedadesMarcador = {
+                        position: posicion,
+                        map,
+                        title: "Marcador"
+                    }
 
-                map.setCenter(posicion);
+                    const marcador = new google.maps.Marker(propiedadesMarcador);
 
-                const infoWindow = new google.maps.infoWindow({
-                    content: informacion
+                    map.setCenter(posicion);
+
+                    const infoWindow = new google.maps.InfoWindow({
+                        content: informacion
+                    });
+
+                    marcador.addListener("click", () => {
+                        infoWindow.open(map, marcador);
+                    });
                 });
 
-                marcador.addListener("click", ()=>{
-                    infoWindow.open(map,marcador);
-                });
+
             }
 
 
