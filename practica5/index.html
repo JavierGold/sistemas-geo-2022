@@ -36,6 +36,12 @@
     </div>
 
     <script>
+        var informacion = "<h1>Universidad De La Salle Bajío</h1>";
+
+        informacion += "<p><strong>Dirección: Av Universidad 602</p>";
+
+        informacion += "<p><strong>Teléfono:  477 7108500</p>";
+
         function iniciaMapa() {
             var propiedades = {
                 center: {
@@ -57,6 +63,7 @@
 
                 let propiedadesMarcador = {
                     position: posicion,
+                    map,
                     title: "Marcador"
                 }
 
@@ -64,7 +71,13 @@
 
                 map.setCenter(posicion);
 
-                
+                const infoWindow = new google.maps.infoWindow({
+                    content: informacion
+                });
+
+                marcador.addListener("click", ()=>{
+                    infoWindow.open(map,marcador);
+                });
             }
 
 
