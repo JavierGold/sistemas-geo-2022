@@ -13,17 +13,23 @@
 <body>
 
     <button onclick="obtieneUbicacion()">Obtener ubicación</button>
-
+    <br>
+    <br>
     <div id="mapa">
         <img id="imagenMapa" src="" alt="Imagen de mapa">
     </div>
-
+    <br>
+    <br>
+    <p id="alerta"></p>
     <script>
         var mapa = document.getElementById("mapa");
 
         function obtieneUbicacion() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(muestraPosicion);
+            } else {
+                var alerta = document.getElementById("alerta")
+                alerta.innerHTML = "El navegador no disponible Geocalizacion"
             }
         }
 
@@ -34,7 +40,8 @@
 
             var imagenMapa = document.getElementById("imagenMapa")
 
-            imagenMapa.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + coordenadas + "&zoom=18&size=800x800&key=AIzaSyCMrQgga-C5zCuZLTVk2MPVzX7naqKZXZU"
+            imagenMapa.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + coordenadas +
+                "&zoom=12&size=800x800&key=AIzaSyCMrQgga-C5zCuZLTVk2MPVzX7naqKZXZU"
         }
     </script>
 
