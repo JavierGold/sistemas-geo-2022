@@ -58,6 +58,10 @@
             });
 
             if(navigator.geolocation){
+
+                setInterval(()=>{
+                    moverPosicion(marker)
+                },5000);
                 moverPosicion(marker);
             }
 
