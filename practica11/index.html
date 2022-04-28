@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
     <title>Document</title>
 
     <style>
-        body{
+        body {
             margin: 0px;
             padding: 0px;
 
         }
 
-        #mapa1, #mapa2, #mapa3, #mapa4, #mapa5, #mapa6, #mapa7{
+        #mapa1,
+        #mapa2,
+        #mapa3,
+        #mapa4,
+        #mapa5,
+        #mapa6,
+        #mapa7 {
             width: 100%;
             height: 340px;
         }
     </style>
 </head>
+
 <body>
 
     <div class="container-fluid">
@@ -85,20 +96,22 @@
             </div>
         </div>
     </div>
-    
+
     <script>
+        function iniciaMapa() {
 
-        function iniciaMapa(){
 
-
-            var coordenadas = {  lat: 21.152639, lng:  -101.711598 };
+            var coordenadas = {
+                lat: 21.152639,
+                lng: -101.711598
+            };
 
             var propiedades1 = {
                 center: coordenadas,
                 zoom: 12
             };
 
-            var mapa1 = new google.maps.Map(document.getElementById('mapa1'),propiedades1);
+            var mapa1 = new google.maps.Map(document.getElementById('mapa1'), propiedades1);
 
 
             var propiedades2 = {
@@ -107,7 +120,7 @@
                 disableDefaultUI: true
             };
 
-            var mapa2 = new google.maps.Map(document.getElementById('mapa2'),propiedades2);
+            var mapa2 = new google.maps.Map(document.getElementById('mapa2'), propiedades2);
 
             var propiedades3 = {
                 center: coordenadas,
@@ -116,61 +129,61 @@
                 scaleControl: false
             };
 
-            var mapa3 = new google.maps.Map(document.getElementById('mapa3'),propiedades3);
+            var mapa3 = new google.maps.Map(document.getElementById('mapa3'), propiedades3);
 
 
             var propiedades4 = {
                 center: coordenadas,
                 zoom: 12,
                 mapTypeControl: true,
-                mapTypeControlOptions : {
-                    style : google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-                    mapTypeIds : [ 'roadmap', 'satellite', 'terrain']
+                mapTypeControlOptions: {
+                    style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+                    mapTypeIds: ['roadmap', 'satellite', 'terrain']
                 }
 
             };
-            var mapa4 = new google.maps.Map(document.getElementById('mapa4'),propiedades4);
+            var mapa4 = new google.maps.Map(document.getElementById('mapa4'), propiedades4);
 
 
             var propiedades5 = {
                 center: coordenadas,
                 zoom: 12,
                 mapTypeControl: true,
-                mapTypeControlOptions : {
-                    style : google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-                    position : google.maps.ControlPosition.TOP_CENTER
+                mapTypeControlOptions: {
+                    style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+                    position: google.maps.ControlPosition.TOP_CENTER
                 },
-                zoomControl : true,
-                zoomControlOptions : {
-                    position : google.maps.ControlPosition.LEFT_CENTER
+                zoomControl: true,
+                zoomControlOptions: {
+                    position: google.maps.ControlPosition.LEFT_CENTER
                 },
-                scaleControl : true,
+                scaleControl: true,
                 streetViewControl: true,
-                streetViewControlOptions : {
-                    position : google.maps.ControlPosition.LEFT_TOP
+                streetViewControlOptions: {
+                    position: google.maps.ControlPosition.LEFT_TOP
                 },
-                fullscreenControl : true
+                fullscreenControl: true
 
             };
-            var mapa5 = new google.maps.Map(document.getElementById('mapa5'),propiedades5);
+            var mapa5 = new google.maps.Map(document.getElementById('mapa5'), propiedades5);
 
 
             var limites = {
                 north: 21.390039,
                 south: 20.858414,
                 west: -102.149631,
-                east:  -101.092990
+                east: -101.092990
             }
 
             var propiedades6 = {
                 center: coordenadas,
                 zoom: 12,
                 restriction: {
-                    latLngBounds : limites,
-                    strictBounds : false
+                    latLngBounds: limites,
+                    strictBounds: false
                 }
             };
-            var mapa6 = new google.maps.Map(document.getElementById('mapa6'),propiedades6);
+            var mapa6 = new google.maps.Map(document.getElementById('mapa6'), propiedades6);
 
 
             var propiedades7 = {
@@ -178,17 +191,25 @@
                 zoom: 19,
                 mapTypeId: "satellite"
             };
-            var mapa7 = new google.maps.Map(document.getElementById('mapa7'),propiedades7);
+            var mapa7 = new google.maps.Map(document.getElementById('mapa7'), propiedades7);
             mapa7.setTilt(45);
 
         }
-
     </script>
-    
-    
-          
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
 
-  
-    
+
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMrQgga-C5zCuZLTVk2MPVzX7naqKZXZU&callback=iniciarMapa"
+        async defer></script>
 </body>
+
 </html>
